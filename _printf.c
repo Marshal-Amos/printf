@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 		return (-1);
 	}
 
-	va_start(argument_list);
+	va_start(argument_list, format);
 
 	/* calling the parsed function */
 	printed_chars = parsed_func(format, specifier_list, argument_list);
