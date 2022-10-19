@@ -27,6 +27,7 @@ int parsed_func(const char *format, convert_t specifier_list[],
 int print_char(va_list);
 int print_string(va_list);
 int print_percent(va_list);
+int print_integer(va_list);
 
 
 #endif /* _PRINTF_H_ */
