@@ -52,3 +52,42 @@ int print_percent(__attribute__((unused)) va_list ap)
 	return (1);
 }
 
+/**
+ * print_integer - a function that prints integer data types
+ *
+ * @ap: list of characters to be printed
+ *
+ * Return: total number of characters printed
+ */
+int print_integer(va_list ap)
+{
+	unsigned int num;
+	int r_val, i, j;
+
+	i = va_arg(ap, int);
+	j = 1;
+	r_val = 0;
+
+	if (i < 0)
+	{
+		r_val += writer_func('-');
+		num = i * -1;
+	}
+	else
+	{
+		num = i;
+	}
+
+	for (; num / j > 9; )
+	{
+		j *= 10;
+	}
+
+	for (; j != 0; )
+	{
+		r_val += writer_func((num / j) + '0');
+		num %= j;
+		j /= 10;
+	}
+	return (r_val);
+}
